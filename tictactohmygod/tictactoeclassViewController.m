@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *image6;
 @property (weak, nonatomic) IBOutlet UIImageView *image7;
 @property (weak, nonatomic) IBOutlet UIImageView *image8;
-
 @property (weak, nonatomic) IBOutlet UIImageView *ximage1;
 @property (weak, nonatomic) IBOutlet UIImageView *ximage2;
 @property (weak, nonatomic) IBOutlet UIImageView *ximage3;
@@ -31,16 +30,18 @@
 @property (weak, nonatomic) IBOutlet UIImageView *ximage8;
 @property (weak, nonatomic) IBOutlet UIImageView *ximage9;
 
+@property (nonatomic) BOOL *playerTurn;
+@property (nonatomic) NSMutableArray *statusarray;
+
 - (IBAction)topLeft:(UIButton*)sender;
 - (IBAction)topCenter:(UIButton *)sender;
 - (IBAction)topRight:(id)sender;
 - (IBAction)centerLeft:(UIButton *)sender;
 - (IBAction)center:(UIButton *)sender;
 - (IBAction)centerRight:(UIButton *)sender;
-
-
-
-@property (nonatomic) BOOL *playerTurn;
+- (IBAction)bottomLeft:(UIButton *)sender;
+- (IBAction)bottomCenter:(UIButton *)sender;
+- (IBAction)bottomRight:(UIButton *)sender;
 
 @end
 
@@ -59,16 +60,7 @@
     [self.image1 addGestureRecognizer:topCenterTapGestureRecognizer];
 }
 
--(BOOL)tapDetected {
-    if (_playerTurn == TRUE) {
-        _playerTurn = FALSE;
-        _statusLabel.text = @"Xs turn";
-    } else if (_playerTurn == FALSE) {
-        _playerTurn = TRUE;
-        _statusLabel.text = @"Os turn";
-    }
-    return _playerTurn;
-}
+
 
 -(void)handleTopLeftTapGesture:(UITapGestureRecognizer *)tapGestureRecognizer {
     _image0.hidden = TRUE;
@@ -93,6 +85,26 @@
     }
 }
 
+/*
+ * Baics of tic tac toe
+ */
+
+-(BOOL)tapDetected {
+    if (_playerTurn == TRUE) {
+        _playerTurn = FALSE;
+        _statusLabel.text = @"Xs turn";
+    } else if (_playerTurn == FALSE) {
+        _playerTurn = TRUE;
+        _statusLabel.text = @"Os turn";
+    }
+    return _playerTurn;
+}
+
+-(void)victoryCheck {
+
+    
+}
+
 - (IBAction)topCenter:(UIButton *)sender {
     if ([self tapDetected] == TRUE) {
         _image1.hidden = TRUE;
@@ -114,14 +126,64 @@
 }
 
 - (IBAction)centerLeft:(UIButton *)sender {
+    if ([self tapDetected] == TRUE) {
+        _image3.hidden = TRUE;
+        _ximage4.hidden = FALSE;
+    } else {
+        _image3.hidden = FALSE;
+        _ximage4.hidden = TRUE;
+    }
 }
 
 - (IBAction)center:(UIButton *)sender {
+    if ([self tapDetected] == TRUE) {
+        _image4.hidden = TRUE;
+        _ximage5.hidden = FALSE;
+    } else {
+        _image4.hidden = FALSE;
+        _ximage5.hidden = TRUE;
+    }
 }
 
 - (IBAction)centerRight:(UIButton *)sender {
+    if ([self tapDetected] == TRUE) {
+        _image5.hidden = TRUE;
+        _ximage6.hidden = FALSE;
+    } else {
+        _image5.hidden = FALSE;
+        _ximage6.hidden = TRUE;
+    }
 }
 
+- (IBAction)bottomLeft:(UIButton *)sender {
+    if ([self tapDetected] == TRUE) {
+        _image6.hidden = TRUE;
+        _ximage7.hidden = FALSE;
+    } else {
+        _image6.hidden = FALSE;
+        _ximage7.hidden = TRUE;
+    }
+}
+
+- (IBAction)bottomCenter:(UIButton *)sender {
+    if ([self tapDetected] == TRUE) {
+        _image7.hidden = TRUE;
+        _ximage8.hidden = FALSE;
+    } else {
+        _image7.hidden = FALSE;
+        _ximage8.hidden = TRUE;
+    }
+}
+
+- (IBAction)bottomRight:(UIButton *)sender {
+    if ([self tapDetected] == TRUE) {
+        _image8.hidden = TRUE;
+        _ximage9.hidden = FALSE;
+    } else {
+        _image8.hidden = FALSE;
+        _ximage9.hidden = TRUE;
+    }
+}
 
 
 @end
