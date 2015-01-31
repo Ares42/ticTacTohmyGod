@@ -11,6 +11,7 @@
 @interface tictactoeclassViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+- (IBAction)resetButton:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *image0;
 @property (weak, nonatomic) IBOutlet UIImageView *image1;
 @property (weak, nonatomic) IBOutlet UIImageView *image2;
@@ -42,6 +43,15 @@
 - (IBAction)bottomLeft:(UIButton *)sender;
 - (IBAction)bottomCenter:(UIButton *)sender;
 - (IBAction)bottomRight:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *topLeftButton;
+@property (weak, nonatomic) IBOutlet UIButton *topCenterButton;
+@property (weak, nonatomic) IBOutlet UIButton *topRightButton;
+@property (weak, nonatomic) IBOutlet UIButton *leftCenterButton;
+@property (weak, nonatomic) IBOutlet UIButton *midleCenterButton;
+@property (weak, nonatomic) IBOutlet UIButton *rightCenterButton;
+@property (weak, nonatomic) IBOutlet UIButton *leftBottomButton;
+@property (weak, nonatomic) IBOutlet UIButton *middleBottomButton;
+@property (weak, nonatomic) IBOutlet UIButton *rightBottomButton;
 
 @end
 
@@ -74,21 +84,6 @@
 // Will implement method later...
 }
 
-
-- (IBAction)topLeft:(UIButton*)sender {
-    if ([self tapDetected] == TRUE) {
-        _image0.hidden = TRUE;
-        _ximage1.hidden = FALSE;
-    } else {
-        _image0.hidden = FALSE;
-        _ximage1.hidden = TRUE;
-    }
-}
-
-/*
- * Baics of tic tac toe
- */
-
 -(BOOL)tapDetected {
     if (_playerTurn == TRUE) {
         _playerTurn = FALSE;
@@ -101,17 +96,69 @@
 }
 
 -(void)victoryCheck {
-
     
+    
+    
+}
+
+- (IBAction)resetButton:(UIButton *)sender {
+    _image0.hidden = TRUE;
+    _image1.hidden = TRUE;
+    _image2.hidden = TRUE;
+    _image3.hidden = TRUE;
+    _image4.hidden = TRUE;
+    _image5.hidden = TRUE;
+    _image6.hidden = TRUE;
+    _image7.hidden = TRUE;
+    _image8.hidden = TRUE;
+    _ximage1.hidden = TRUE;
+    _ximage2.hidden = TRUE;
+    _ximage3.hidden = TRUE;
+    _ximage4.hidden = TRUE;
+    _ximage5.hidden = TRUE;
+    _ximage6.hidden = TRUE;
+    _ximage7.hidden = TRUE;
+    _ximage8.hidden = TRUE;
+    _ximage9.hidden = TRUE;
+    
+    _topLeftButton.hidden = FALSE;
+    _topCenterButton.hidden = FALSE;
+    _topRightButton.hidden = FALSE;
+    
+    _leftCenterButton.hidden = FALSE;
+    _midleCenterButton.hidden = FALSE;
+    _rightCenterButton.hidden = FALSE;
+    
+    _leftBottomButton.hidden = FALSE;
+    _middleBottomButton.hidden = FALSE;
+    _rightBottomButton.hidden = FALSE;
+
+    _playerTurn = TRUE;
+    _statusLabel.text = @"Os go first";
+}
+
+- (IBAction)topLeft:(UIButton*)sender {
+    if ([self tapDetected] == TRUE) {
+        _image0.hidden = TRUE;
+        _ximage1.hidden = FALSE;
+        _topLeftButton.hidden = TRUE;
+    } else {
+        _image0.hidden = FALSE;
+        _ximage1.hidden = TRUE;
+        _topLeftButton.hidden = TRUE;
+    }
+    _topLeftButton.hidden = TRUE;
 }
 
 - (IBAction)topCenter:(UIButton *)sender {
     if ([self tapDetected] == TRUE) {
         _image1.hidden = TRUE;
         _ximage2.hidden = FALSE;
+        _topCenterButton.hidden = TRUE;
     } else {
         _image1.hidden = FALSE;
         _ximage2.hidden = TRUE;
+        _topCenterButton.hidden = TRUE;
     }
 }
 
@@ -119,9 +166,11 @@
     if ([self tapDetected] == TRUE) {
         _image2.hidden = TRUE;
         _ximage3.hidden = FALSE;
+        _topRightButton.hidden = TRUE;
     } else {
         _image2.hidden = FALSE;
         _ximage3.hidden = TRUE;
+        _topRightButton.hidden = TRUE;
     }
 }
 
@@ -129,9 +178,12 @@
     if ([self tapDetected] == TRUE) {
         _image3.hidden = TRUE;
         _ximage4.hidden = FALSE;
+        _leftCenterButton.hidden = TRUE;
     } else {
         _image3.hidden = FALSE;
         _ximage4.hidden = TRUE;
+        _leftCenterButton.hidden = TRUE;
+
     }
 }
 
@@ -139,9 +191,11 @@
     if ([self tapDetected] == TRUE) {
         _image4.hidden = TRUE;
         _ximage5.hidden = FALSE;
+        _midleCenterButton.hidden = TRUE;
     } else {
         _image4.hidden = FALSE;
         _ximage5.hidden = TRUE;
+        _midleCenterButton.hidden = TRUE;
     }
 }
 
@@ -149,9 +203,11 @@
     if ([self tapDetected] == TRUE) {
         _image5.hidden = TRUE;
         _ximage6.hidden = FALSE;
+        _rightCenterButton.hidden = TRUE;
     } else {
         _image5.hidden = FALSE;
         _ximage6.hidden = TRUE;
+        _rightCenterButton.hidden = TRUE;
     }
 }
 
@@ -159,9 +215,11 @@
     if ([self tapDetected] == TRUE) {
         _image6.hidden = TRUE;
         _ximage7.hidden = FALSE;
+        _leftBottomButton.hidden = TRUE;
     } else {
         _image6.hidden = FALSE;
         _ximage7.hidden = TRUE;
+        _leftBottomButton.hidden = TRUE;
     }
 }
 
@@ -169,9 +227,11 @@
     if ([self tapDetected] == TRUE) {
         _image7.hidden = TRUE;
         _ximage8.hidden = FALSE;
+        _middleBottomButton.hidden = TRUE;
     } else {
         _image7.hidden = FALSE;
         _ximage8.hidden = TRUE;
+        _middleBottomButton.hidden = TRUE;
     }
 }
 
@@ -179,11 +239,14 @@
     if ([self tapDetected] == TRUE) {
         _image8.hidden = TRUE;
         _ximage9.hidden = FALSE;
+        _rightBottomButton.hidden = TRUE;
     } else {
         _image8.hidden = FALSE;
         _ximage9.hidden = TRUE;
+        _rightBottomButton.hidden = TRUE;
     }
 }
+
 
 
 @end
