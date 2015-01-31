@@ -79,20 +79,20 @@
 
 -(void)victoryCheck {
 /*
-        There are 8 winning positions on the board:
- verticle lines          horizontal lines       diagonals
- 1,0,0  0,1,0  0,0,1 | 1,1,1  0,0,0  0,0,0 | 1,0,0  0,0,1
- 1,0,0  0,1,0  0,0,1 | 0,0,0  1,1,1  0,0,0 | 0,1,0  0,1,0
- 1,0,0  0,1,0  0,0,1 | 0,0,0  0,0,0  1,1,1 | 0,0,1  1,0,0
+There are 8 winning positions on the board:
+verticle lines          horizontal lines       diagonals
+1,0,0  0,1,0  0,0,1 | 1,1,1  0,0,0  0,0,0 | 1,0,0  0,0,1
+1,0,0  0,1,0  0,0,1 | 0,0,0  1,1,1  0,0,0 | 0,1,0  0,1,0
+1,0,0  0,1,0  0,0,1 | 0,0,0  0,0,0  1,1,1 | 0,0,1  1,0,0
 
-    Run all 8 checks every time?
-    I guess so... although won't there be 16 checks? one for each
+Run all 8 checks every time?
+I guess so... although won't there be 16 checks? one for each player? i suppose so....
 
-    Logic that needs to be implemented:
-    1. Can I win?
-    2. Can my opponent win next turn?
-    
- */
+Logic that needs to be implemented:
+1. Can I win?
+2. Can my opponent win next turn?
+
+*/
 }
 
 -(BOOL)tapDetected {
@@ -143,11 +143,9 @@
     if ([self tapDetected] == TRUE) {
         _image0.hidden = TRUE;
         _ximage1.hidden = FALSE;
-        _topLeftButton.hidden = TRUE;
     } else {
         _image0.hidden = FALSE;
         _ximage1.hidden = TRUE;
-        _topLeftButton.hidden = TRUE;
     }
     _topLeftButton.hidden = TRUE;
 }
@@ -156,99 +154,88 @@
     if ([self tapDetected] == TRUE) {
         _image1.hidden = TRUE;
         _ximage2.hidden = FALSE;
-        _topCenterButton.hidden = TRUE;
     } else {
         _image1.hidden = FALSE;
         _ximage2.hidden = TRUE;
-        _topCenterButton.hidden = TRUE;
     }
+    _topCenterButton.hidden = TRUE;
 }
 
 - (IBAction)topRight:(id)sender {
     if ([self tapDetected] == TRUE) {
         _image2.hidden = TRUE;
         _ximage3.hidden = FALSE;
-        _topRightButton.hidden = TRUE;
     } else {
         _image2.hidden = FALSE;
         _ximage3.hidden = TRUE;
-        _topRightButton.hidden = TRUE;
     }
+    _topRightButton.hidden = TRUE;
 }
 
 - (IBAction)centerLeft:(UIButton *)sender {
     if ([self tapDetected] == TRUE) {
         _image3.hidden = TRUE;
         _ximage4.hidden = FALSE;
-        _leftCenterButton.hidden = TRUE;
     } else {
         _image3.hidden = FALSE;
         _ximage4.hidden = TRUE;
-        _leftCenterButton.hidden = TRUE;
-
     }
+    _leftCenterButton.hidden = TRUE;
 }
 
 - (IBAction)center:(UIButton *)sender {
     if ([self tapDetected] == TRUE) {
         _image4.hidden = TRUE;
         _ximage5.hidden = FALSE;
-        _midleCenterButton.hidden = TRUE;
     } else {
         _image4.hidden = FALSE;
         _ximage5.hidden = TRUE;
-        _midleCenterButton.hidden = TRUE;
     }
+    _midleCenterButton.hidden = TRUE;
 }
 
 - (IBAction)centerRight:(UIButton *)sender {
     if ([self tapDetected] == TRUE) {
         _image5.hidden = TRUE;
         _ximage6.hidden = FALSE;
-        _rightCenterButton.hidden = TRUE;
     } else {
         _image5.hidden = FALSE;
         _ximage6.hidden = TRUE;
-        _rightCenterButton.hidden = TRUE;
     }
+    _rightCenterButton.hidden = TRUE;
 }
 
 - (IBAction)bottomLeft:(UIButton *)sender {
     if ([self tapDetected] == TRUE) {
         _image6.hidden = TRUE;
         _ximage7.hidden = FALSE;
-        _leftBottomButton.hidden = TRUE;
     } else {
         _image6.hidden = FALSE;
         _ximage7.hidden = TRUE;
-        _leftBottomButton.hidden = TRUE;
     }
+    _leftBottomButton.hidden = TRUE;
 }
 
 - (IBAction)bottomCenter:(UIButton *)sender {
     if ([self tapDetected] == TRUE) {
         _image7.hidden = TRUE;
         _ximage8.hidden = FALSE;
-        _middleBottomButton.hidden = TRUE;
     } else {
         _image7.hidden = FALSE;
         _ximage8.hidden = TRUE;
-        _middleBottomButton.hidden = TRUE;
     }
+    _middleBottomButton.hidden = TRUE;
 }
 
 - (IBAction)bottomRight:(UIButton *)sender {
     if ([self tapDetected] == TRUE) {
         _image8.hidden = TRUE;
         _ximage9.hidden = FALSE;
-        _rightBottomButton.hidden = TRUE;
     } else {
         _image8.hidden = FALSE;
         _ximage9.hidden = TRUE;
-        _rightBottomButton.hidden = TRUE;
     }
+    _rightBottomButton.hidden = TRUE;
 }
-
-
 
 @end
