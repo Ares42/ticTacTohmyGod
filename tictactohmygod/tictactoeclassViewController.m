@@ -30,10 +30,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *ximage7;
 @property (weak, nonatomic) IBOutlet UIImageView *ximage8;
 @property (weak, nonatomic) IBOutlet UIImageView *ximage9;
-
 @property (nonatomic) BOOL *playerTurn;
 @property (nonatomic) NSMutableArray *statusarray;
-
 - (IBAction)topLeft:(UIButton*)sender;
 - (IBAction)topCenter:(UIButton *)sender;
 - (IBAction)topRight:(id)sender;
@@ -59,7 +57,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     _playerTurn = TRUE;
     _statusLabel.text = @"Os go first";
     
@@ -70,18 +67,32 @@
     [self.image1 addGestureRecognizer:topCenterTapGestureRecognizer];
 }
 
-
-
 -(void)handleTopLeftTapGesture:(UITapGestureRecognizer *)tapGestureRecognizer {
     _image0.hidden = TRUE;
 }
-
 -(void)handleTopCenterTapGesture:(UITapGestureRecognizer *)tapGestureRecognizer {
     
 }
-
 - (IBAction)displayGestureForTapRecognizer:(UITapGestureRecognizer *)recognizer {
 // Will implement method later...
+}
+
+-(void)victoryCheck {
+/*
+        There are 8 winning positions on the board:
+ verticle lines          horizontal lines       diagonals
+ 1,0,0  0,1,0  0,0,1 | 1,1,1  0,0,0  0,0,0 | 1,0,0  0,0,1
+ 1,0,0  0,1,0  0,0,1 | 0,0,0  1,1,1  0,0,0 | 0,1,0  0,1,0
+ 1,0,0  0,1,0  0,0,1 | 0,0,0  0,0,0  1,1,1 | 0,0,1  1,0,0
+
+    Run all 8 checks every time?
+    I guess so... although won't there be 16 checks? one for each
+
+    Logic that needs to be implemented:
+    1. Can I win?
+    2. Can my opponent win next turn?
+    
+ */
 }
 
 -(BOOL)tapDetected {
@@ -95,12 +106,7 @@
     return _playerTurn;
 }
 
--(void)victoryCheck {
-    
-    
-    
-}
-
+#pragma mark - Button Behaviors
 - (IBAction)resetButton:(UIButton *)sender {
     _image0.hidden = TRUE;
     _image1.hidden = TRUE;
@@ -120,19 +126,15 @@
     _ximage7.hidden = TRUE;
     _ximage8.hidden = TRUE;
     _ximage9.hidden = TRUE;
-    
     _topLeftButton.hidden = FALSE;
     _topCenterButton.hidden = FALSE;
     _topRightButton.hidden = FALSE;
-    
     _leftCenterButton.hidden = FALSE;
     _midleCenterButton.hidden = FALSE;
     _rightCenterButton.hidden = FALSE;
-    
     _leftBottomButton.hidden = FALSE;
     _middleBottomButton.hidden = FALSE;
     _rightBottomButton.hidden = FALSE;
-
     _playerTurn = TRUE;
     _statusLabel.text = @"Os go first";
 }
