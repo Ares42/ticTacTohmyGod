@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dnk-QH-P8B">
-                                <rect key="frame" x="239" y="306" width="121" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dnk-QH-P8B">
+                                <rect key="frame" x="240" y="306" width="121" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="2 Players">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -44,11 +44,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Dnk-QH-P8B" firstAttribute="top" secondItem="nqE-9W-bCP" secondAttribute="bottom" constant="103" id="BOT-ry-udw"/>
                             <constraint firstItem="nqE-9W-bCP" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="136" id="LHh-W8-rJF"/>
                             <constraint firstItem="nqE-9W-bCP" firstAttribute="centerX" secondItem="Dnk-QH-P8B" secondAttribute="centerX" id="LQx-xN-rrk"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Dnk-QH-P8B" secondAttribute="bottom" constant="246" id="Pp2-q8-Qij"/>
                             <constraint firstItem="nqE-9W-bCP" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="npF-Xt-0nK"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="BOT-ry-udw"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
